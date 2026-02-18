@@ -9,6 +9,7 @@ import Confetti from "./components/Confetti";
 import LoadingScreen from "./components/LoadingScreen";
 import CollectionPage from "./components/CollectionPage";
 import { players, photos } from "./data";
+import { asset } from "./utils";
 
 export default function App() {
   const [gameStarted, setGameStarted] = useState(false);
@@ -42,7 +43,7 @@ export default function App() {
           className="relative flex-1 bg-cover bg-center px-10 py-4 max-md:px-5 overflow-auto"
           style={{
             backgroundImage:
-              "linear-gradient(180deg, rgba(10,20,40,0.6) 0%, rgba(5,10,20,0.85) 100%), url('/images/bg.png')",
+              `linear-gradient(180deg, rgba(10,20,40,0.6) 0%, rgba(5,10,20,0.85) 100%), url('${asset("/images/bg.png")}')`,
           }}
         >
           <TeamsContainer players={players} />

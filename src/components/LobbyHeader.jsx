@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { asset } from "../utils";
 
 export default function LobbyHeader() {
   const [btnText, setBtnText] = useState("INVITE");
@@ -16,7 +17,7 @@ export default function LobbyHeader() {
         {/* Crest */}
         <div className="w-14 h-14 border-2 border-lol-gold-dark rounded-full flex items-center justify-center bg-lol-blue-mid overflow-hidden">
           <img
-            src="/images/icons/poro.gif"
+            src={asset("/images/icons/poro.gif")}
             alt="crest"
             className="w-full h-full object-cover"
           />

@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { asset } from "../utils";
 
 export default function LoadingScreen({ players, onComplete }) {
   const [loading, setLoading] = useState(true);
@@ -46,7 +47,7 @@ export default function LoadingScreen({ players, onComplete }) {
       {/* Background image */}
       <div className="absolute inset-0">
         <img
-          src="/images/loading-bg.jpg"
+          src={asset("/images/loading-bg.jpg")}
           alt=""
           className="w-full h-full object-cover"
         />
@@ -219,7 +220,7 @@ function BannerCard({ player, index, revealed, loading, flipped, onFlip }) {
               {/* Icon + username — center */}
               <div className="shrink-0 flex flex-col items-center gap-0.5">
                 <img
-                  src={player.summonerIcon || "/images/icons/default.jpg"}
+                  src={player.summonerIcon || asset("/images/icons/default.jpg")}
                   alt=""
                   className="w-8 h-8 max-md:w-5 max-md:h-5 max-sm:w-4 max-sm:h-4 rounded-full border-2 border-lol-border/60 object-cover"
                 />

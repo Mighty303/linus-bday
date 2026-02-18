@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { asset } from "../utils";
 
 const SKIN_RARITIES = ["epic", "legendary", "mythic"];
 
@@ -166,7 +167,7 @@ export default function CollectionPage({ photos, players, onClose }) {
                   {/* Skin rarity icon — bottom center */}
                   <div className="absolute bottom-1.5 left-1/2 -translate-x-1/2">
                     <img
-                      src={`/images/icons/skins/${item.rarity}.jpg`}
+                      src={asset(`/images/icons/skins/${item.rarity}.jpg`)}
                       alt={item.rarity}
                       className="w-7 h-7 max-sm:w-5 max-sm:h-5 object-contain drop-shadow-lg"
                     />
@@ -210,7 +211,7 @@ export default function CollectionPage({ photos, players, onClose }) {
             <div className="absolute bottom-0 left-0 right-0 bg-linear-to-t from-black/90 via-black/50 to-transparent p-6">
               <div className="flex items-center gap-3">
                 <img
-                  src={`/images/icons/skins/${selectedPhoto.rarity}.jpg`}
+                  src={asset(`/images/icons/skins/${selectedPhoto.rarity}.jpg`)}
                   alt={selectedPhoto.rarity}
                   className="w-8 h-8 object-contain"
                 />

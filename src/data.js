@@ -1,20 +1,21 @@
 import { asset } from "./utils";
 
 export const players = [
-  {
-    id: "marcus",
-    name: "Marcus",
-    username: "mt717",
-    level: 37,
+    {
+    id: "angus",
+    name: "Angus",
+    username: "XxLegendaryxX002",
+    level: 25,
     team: 1,
-    avatar: asset("/images/icons/tristana.jpg"),
-    summonerIcon: asset("/images/icons/summoner/marcus.jpg"),
-    banner: asset("/images/banner/tristana.jpg"),
-    skinName: "Tristana",
-    rune: asset("/images/icons/runes/pta.jpg"),
-    summonerSpells: [asset("/images/icons/summoner-spells/flash.jpg"), asset("/images/icons/summoner-spells/heal.jpg")],
+    avatar: asset("/images/icons/garen.jpg"),
+    summonerIcon: asset("/images/icons/summoner/angus.jpg"),
+    banner: asset("/images/banner/garen.jpg"),
+    skinName: "Garen",
+    // roleIcon: asset("/images/icons/talon.png"),
+    rune: asset("/images/icons/runes/electrocute.jpg"),
+    summonerSpells: [asset("/images/icons/summoner-spells/flash.jpg"), asset("/images/icons/summoner-spells/ignite.jpg")],
     message:
-    "Happy birthday Liner!!!\n\nHave fun, don't add to the population, don't subtract from the population and don't end up on the news in Korea!!\n\n안녕하세요, 당신은 제가 제일 좋아하는 털복숭이 친구예요.",
+      "Happy birthday Linus you’re old like the rest of us now can’t wait to be in the senior home soon together :))",
   },
   {
     id: "mete",
@@ -46,6 +47,21 @@ export const players = [
     summonerSpells: [asset("/images/icons/summoner-spells/flash.jpg"), asset("/images/icons/summoner-spells/ignite.jpg")],
     message:
       "Happy birthday Linus ! 🎉 \nYou're 22 now it's time to pack it up lil bro🎒\n\nHave fun in Korea and bring back a wife",
+  },
+  {
+    id: "marcus",
+    name: "Marcus",
+    username: "mt717",
+    level: 37,
+    team: 1,
+    avatar: asset("/images/icons/tristana.jpg"),
+    summonerIcon: asset("/images/icons/summoner/marcus.jpg"),
+    banner: asset("/images/banner/tristana.jpg"),
+    skinName: "Tristana",
+    rune: asset("/images/icons/runes/pta.jpg"),
+    summonerSpells: [asset("/images/icons/summoner-spells/flash.jpg"), asset("/images/icons/summoner-spells/heal.jpg")],
+    message:
+    "Happy birthday Liner!!!\n\nHave fun, don't add to the population, don't subtract from the population and don't end up on the news in Korea!!\n\n안녕하세요, 당신은 제가 제일 좋아하는 털복숭이 친구예요.",
   },
   {
     id: "darren",

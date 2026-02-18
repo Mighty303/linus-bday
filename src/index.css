@@ -1,0 +1,22 @@
+@import "tailwindcss";
+
+@theme {
+  --color-lol-gold: #C8AA6E;
+  --color-lol-gold-light: #F0E6D2;
+  --color-lol-gold-dark: #785A28;
+  --color-lol-blue-dark: #010A13;
+  --color-lol-blue-mid: #0A1428;
+  --color-lol-blue-light: #0A323C;
+  --color-lol-teal: #0AC8B9;
+  --color-lol-border: #463714;
+  --color-lol-grey: #A09B8C;
+  --color-lol-text: #F0E6D2;
+  --color-lol-red: #C24B4B;
+  --color-lol-nav-top: #1E2328;
+  --color-lol-nav-bottom: #111318;
+}
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #010A13; }
+::-webkit-scrollbar-thumb { background: #463714; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #C8AA6E; }

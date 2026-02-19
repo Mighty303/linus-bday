@@ -79,6 +79,21 @@ export const players = [
       "Happy Birthday Linus!\n\n",
   },
   {
+    id: "andy",
+    name: "Andy",
+    username: "superchunguslove",
+    level: 247,
+    team: 2,
+    avatar: asset("/images/icons/singed.jpg"),
+    summonerIcon: asset("images/icons/summoner/andy.jpg"),
+    banner: asset("/images/banner/singed.jpg"),
+    skinName: "Twitch",
+    rune: asset("/images/icons/runes/arcane-comet.jpg"),
+    summonerSpells: [asset("/images/icons/summoner-spells/flash.jpg"), asset("/images/icons/summoner-spells/ignite.jpg")],
+    message:
+      "happy birthday Linus you're 6pek greatest disciple"
+  },
+  {
     id: "linus",
     name: "Linus",
     username: "的马西啊",
@@ -94,14 +109,14 @@ export const players = [
       "Lmao ur a twitch main"
   },
   {
-    id: "andy",
-    name: "Andy",
-    username: "superchunguslove",
-    level: 247,
+    id: "ethan",
+    name: "Ethan",
+    username: "Maybechinese",
+    level: 78,
     team: 2,
-    avatar: asset("/images/icons/singed.jpg"),
-    summonerIcon: asset("images/icons/summoner/andy.jpg"),
-    banner: asset("/images/banner/singed.jpg"),
+    avatar: asset("/images/icons/darius.jpg"),
+    summonerIcon: asset("images/icons/summoner/ethan.jpg"),
+    banner: asset("/images/banner/darius.jpg"),
     skinName: "Twitch",
     rune: asset("/images/icons/runes/arcane-comet.jpg"),
     summonerSpells: [asset("/images/icons/summoner-spells/flash.jpg"), asset("/images/icons/summoner-spells/ignite.jpg")],

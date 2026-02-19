@@ -121,7 +121,7 @@ export const players = [
     rune: asset("/images/icons/runes/arcane-comet.jpg"),
     summonerSpells: [asset("/images/icons/summoner-spells/flash.jpg"), asset("/images/icons/summoner-spells/ignite.jpg")],
     message:
-      "happy birthday Linus you're 6pek greatest disciple"
+      "Happy birthday pp, can’t wait to for our adventures in Asia"
   },
 ];
 

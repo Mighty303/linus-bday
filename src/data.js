@@ -69,10 +69,10 @@ export const players = [
     username: "Derek Reborn",
     level: 142,
     team: 2,
-    avatar: asset("/images/icons/sion.png"),
+    avatar: asset("/images/icons/malphite.jpg"),
     summonerIcon: asset("/images/icons/summoner/darren.jpg"),
-    banner: asset("/images/banner/sion.jpg"),
-    skinName: "Sion",
+    banner: asset("/images/banner/malphite.jpg"),
+    skinName: "Shamrock Malphite",
     rune: asset("/images/icons/runes/grasp.jpg"),
     summonerSpells: [asset("/images/icons/summoner-spells/flash.jpg"), asset("/images/icons/summoner-spells/teleport.jpg")],
     message:

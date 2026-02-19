@@ -76,7 +76,7 @@ export const players = [
     rune: asset("/images/icons/runes/grasp.jpg"),
     summonerSpells: [asset("/images/icons/summoner-spells/flash.jpg"), asset("/images/icons/summoner-spells/teleport.jpg")],
     message:
-      "Happy Birthday Linus!\n\n",
+      "Happy birthday Linus!\n\nDon’t have too much fun without us remember you’ll always have a spot to pla with us in the retirement home!\n\nDarren",
   },
   {
     id: "andy",

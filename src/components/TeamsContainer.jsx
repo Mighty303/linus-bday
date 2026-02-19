@@ -33,7 +33,7 @@ export default function TeamsContainer({ players }) {
           <PlayerSlot
             key={player?.id ?? `t2-empty-${i}`}
             player={player}
-            showJoin={i === 0}
+            showJoin={!player}
           />
         ))}
       </div>

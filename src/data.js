@@ -87,7 +87,7 @@ export const players = [
     avatar: asset("/images/icons/singed.jpg"),
     summonerIcon: asset("images/icons/summoner/andy.jpg"),
     banner: asset("/images/banner/singed.jpg"),
-    skinName: "Twitch",
+    skinName: "Singed",
     rune: asset("/images/icons/runes/arcane-comet.jpg"),
     summonerSpells: [asset("/images/icons/summoner-spells/flash.jpg"), asset("/images/icons/summoner-spells/ignite.jpg")],
     message:
@@ -117,7 +117,7 @@ export const players = [
     avatar: asset("/images/icons/darius.jpg"),
     summonerIcon: asset("images/icons/summoner/ethan.jpg"),
     banner: asset("/images/banner/darius.jpg"),
-    skinName: "Twitch",
+    skinName: "Darius",
     rune: asset("/images/icons/runes/arcane-comet.jpg"),
     summonerSpells: [asset("/images/icons/summoner-spells/flash.jpg"), asset("/images/icons/summoner-spells/ignite.jpg")],
     message:

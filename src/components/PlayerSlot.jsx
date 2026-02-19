@@ -17,8 +17,13 @@ export default function PlayerSlot({ player, showJoin }) {
 
   if (!player) {
     return (
-      <div className="flex items-center px-3.5 py-2.5 mb-1 border border-lol-border/30 border-l-[3px] border-l-lol-border/30 bg-[rgba(10,20,40,0.5)] min-h-14">
+      <div className="relative flex items-center px-3.5 py-2.5 mb-1 border border-lol-border/30 border-l-[3px] border-l-lol-border/30 bg-[rgba(10,20,40,0.5)] min-h-14">
         <span className="text-lol-grey/40 text-sm pl-2.5">Empty</span>
+        {showJoin && (
+          <button className="absolute right-3.5 px-6 py-1.5 border-2 border-lol-gold bg-transparent text-lol-gold text-[11px] font-bold tracking-wider uppercase cursor-pointer transition-all hover:bg-lol-gold/15">
+            JOIN
+          </button>
+        )}
       </div>
     );
   }
@@ -54,13 +59,6 @@ export default function PlayerSlot({ player, showJoin }) {
           alt="role"
           className="w-5 h-5 ml-2 opacity-70"
         />
-      )}
-
-      {/* Join button */}
-      {showJoin && (
-        <button className="absolute right-3.5 px-6 py-1.5 border-2 border-lol-gold bg-transparent text-lol-gold text-[11px] font-bold tracking-wider uppercase cursor-pointer transition-all hover:bg-lol-gold/15">
-          JOIN
-        </button>
       )}
 
       {/* Message bubble */}

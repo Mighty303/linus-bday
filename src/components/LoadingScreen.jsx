@@ -2,25 +2,31 @@ import { useState, useEffect } from "react";
 import { asset } from "../utils";
 
 export default function LoadingScreen({ players, onComplete }) {
-  const [loading, setLoading] = useState(true);
-  const [cardsRevealed, setCardsRevealed] = useState(false);
   const [flippedCards, setFlippedCards] = useState({});
   const [exiting, setExiting] = useState(false);
+  const [progress, setProgress] = useState(0);
 
   const allFlipped = players.every((p) => flippedCards[p.id]);
 
-  // Cards stagger in immediately, progress bar fills over 4s
+  // Animate progress bar
   useEffect(() => {
-    const revealTimer = setTimeout(() => setCardsRevealed(true), 300);
-    const loadTimer = setTimeout(() => setLoading(false), 4200);
+    let start = null;
+    const duration = 3000; // 3 seconds
+    const animate = (timestamp) => {
+      if (!start) start = timestamp;
+      const elapsed = timestamp - start;
+      const pct = Math.min((elapsed / duration) * 100, 100);
+      setProgress(pct);
+      if (elapsed < duration) requestAnimationFrame(animate);
+    };
+    const raf = requestAnimationFrame(animate);
+
     return () => {
-      clearTimeout(revealTimer);
-      clearTimeout(loadTimer);
+      cancelAnimationFrame(raf);
     };
   }, []);
 
   const handleFlip = (id) => {
-    if (loading) return; // can't flip until loaded
     setFlippedCards((prev) => ({ ...prev, [id]: !prev[id] }));
   };
 
@@ -64,8 +70,6 @@ export default function LoadingScreen({ players, onComplete }) {
               key={player?.id ?? `empty-top-${i}`}
               player={player}
               index={i}
-              revealed={cardsRevealed}
-              loading={loading}
               flipped={player ? !!flippedCards[player.id] : false}
               onFlip={player ? () => handleFlip(player.id) : undefined}
             />
@@ -84,8 +88,6 @@ export default function LoadingScreen({ players, onComplete }) {
               key={player?.id ?? `empty-bot-${i}`}
               player={player}
               index={i + 5}
-              revealed={cardsRevealed}
-              loading={loading}
               flipped={player ? !!flippedCards[player.id] : false}
               onFlip={player ? () => handleFlip(player.id) : undefined}
             />
@@ -107,64 +109,39 @@ export default function LoadingScreen({ players, onComplete }) {
 
       {/* Bottom bar with progress */}
       <div className="relative z-10 px-6 pb-4 pt-2">
-        {/* Progress bar */}
-        <div className="w-full h-1 bg-white/10 rounded-full overflow-hidden mb-3">
+        {/* Blue progress bar */}
+        <div className="w-full h-1.5 bg-white/10 rounded-full overflow-hidden mb-3">
           <div
-            className="h-full bg-lol-teal rounded-full transition-all"
-            style={{
-              animation: loading ? "loadProgress 4s ease-in-out forwards" : undefined,
-              width: loading ? undefined : "100%",
-            }}
+            className="h-full bg-lol-teal rounded-full transition-none"
+            style={{ width: `${progress}%` }}
           />
         </div>
         {/* Footer info */}
         <div className="flex items-center justify-between text-lol-grey/50 text-[10px]">
-          <span className="flex items-center gap-2">
-            {loading ? (
-              <span className="text-lol-gold-light/70 tracking-widest uppercase text-xs font-medium animate-pulse">
-                Loading...
-              </span>
-            ) : (
-              <span className="text-lol-gold-light/70 tracking-widest uppercase text-xs font-medium">
-                Click each card to read
-              </span>
-            )}
+          <span className="text-lol-gold-light/70 tracking-widest uppercase text-xs font-medium">
+            Click each card to read
           </span>
-          <span className="text-lol-gold/50 font-mono">128 ms</span>
+          <span className="text-lol-gold/50 font-mono">{Math.round(progress)}%</span>
         </div>
       </div>
-
-      <style>{`
-        @keyframes loadProgress {
-          0% { width: 0%; }
-          60% { width: 75%; }
-          90% { width: 95%; }
-          100% { width: 100%; }
-        }
-      `}</style>
     </div>
   );
 }
 
 /* ── Individual Banner Card ── */
-function BannerCard({ player, index, revealed, loading, flipped, onFlip }) {
+function BannerCard({ player, flipped, onFlip }) {
   if (!player) {
     return (
       <div
-        className={`w-52 h-104 max-lg:w-44 max-lg:h-88 max-md:w-34 max-md:h-68 max-sm:w-24 max-sm:h-52 rounded-md border border-white/10 bg-black/30 backdrop-blur-sm transition-all duration-700 ${
-          revealed ? "opacity-30 translate-y-0" : "opacity-0 translate-y-12"
-        }`}
-        style={{ transitionDelay: `${index * 80}ms` }}
+        className="w-52 h-104 max-lg:w-44 max-lg:h-88 max-md:w-34 max-md:h-68 max-sm:w-24 max-sm:h-52 rounded-md border border-white/10 bg-black/30 backdrop-blur-sm opacity-30"
       />
     );
   }
 
   return (
     <div
-      className={`relative w-52 max-lg:w-44 max-md:w-34 max-sm:w-24 transition-all duration-700 ${
-        revealed ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
-      } ${!loading && !flipped ? "cursor-pointer" : ""} ${loading ? "" : "cursor-pointer"}`}
-      style={{ transitionDelay: `${index * 80}ms`, perspective: "1000px" }}
+      className="relative w-52 max-lg:w-44 max-md:w-34 max-sm:w-24 cursor-pointer"
+      style={{ perspective: "1000px" }}
       onClick={onFlip}
     >
       <div
@@ -176,20 +153,14 @@ function BannerCard({ player, index, revealed, loading, flipped, onFlip }) {
       >
         {/* ── Front: Champion Banner ── */}
         <div
-          className={`relative h-104 max-lg:h-88 max-md:h-68 max-sm:h-52 rounded-md overflow-hidden border-2 bg-lol-blue-mid group transition-all duration-300 ${
-            loading
-              ? "border-lol-border/60"
-              : "border-lol-border hover:border-lol-gold hover:shadow-[0_0_24px_rgba(200,170,110,0.3)] hover:-translate-y-1"
-          }`}
+          className={`relative h-104 max-lg:h-88 max-md:h-68 max-sm:h-52 rounded-md overflow-hidden border-2 bg-lol-blue-mid group transition-all duration-300 border-lol-border hover:border-lol-gold hover:shadow-[0_0_24px_rgba(200,170,110,0.3)] hover:-translate-y-1`}
           style={{ backfaceVisibility: "hidden" }}
         >
           {/* Banner image */}
           <img
             src={player.banner}
             alt={player.name}
-            className={`absolute inset-0 w-full h-full object-cover transition-all duration-500 ${
-              loading ? "brightness-75" : "brightness-100 group-hover:scale-110"
-            }`}
+            className={`absolute inset-0 w-full h-full object-cover transition-all duration-500 brightness-100 group-hover:scale-110`}
           />
 
           {/* Top vignette */}
@@ -249,18 +220,13 @@ function BannerCard({ player, index, revealed, loading, flipped, onFlip }) {
           <div className="absolute bottom-1 left-1 w-3 h-3 max-sm:w-1.5 max-sm:h-1.5 border-b border-l border-lol-gold/30" />
           <div className="absolute bottom-1 right-1 w-3 h-3 max-sm:w-1.5 max-sm:h-1.5 border-b border-r border-lol-gold/30" />
 
-          {/* Click hint on hover (only when not loading) */}
-          {!loading && !flipped && (
+          {/* Click hint on hover */}
+          {!flipped && (
             <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200">
               <span className="bg-black/70 text-lol-gold text-[10px] max-sm:text-[8px] px-2 py-1 rounded font-medium backdrop-blur-sm">
                 Click to read
               </span>
             </div>
-          )}
-
-          {/* Loading shimmer overlay */}
-          {loading && (
-            <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/5 to-transparent animate-[shimmer_2s_ease-in-out_infinite]" />
           )}
         </div>
 
@@ -296,12 +262,6 @@ function BannerCard({ player, index, revealed, loading, flipped, onFlip }) {
         </div>
       </div>
 
-      <style>{`
-        @keyframes shimmer {
-          0% { transform: translateX(-100%); }
-          100% { transform: translateX(100%); }
-        }
-      `}</style>
     </div>
   );
 }

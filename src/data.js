@@ -17,20 +17,20 @@ export const players = [
     message:
       "Happy birthday Linus you’re old like the rest of us now can’t wait to be in the senior home soon together :))",
   },
-  {
-    id: "mete",
-    name: "Mete",
-    username: "Lobotomizer",
-    level: 249,
+    {
+    id: "matt",
+    name: "Matt",
+    username: "Ermergesh",
+    level: 910,
     team: 1,
-    avatar: asset("/images/icons/gragas.png"),
-    summonerIcon: asset("/images/icons/summoner/mete.jpg"),
-    banner: asset("/images/banner/gragas.jpg"),
-    skinName: "Gragas",
-    rune: asset("/images/icons/runes/grasp.jpg"),
-    summonerSpells: [asset("/images/icons/summoner-spells/flash.jpg"), asset("/images/icons/summoner-spells/teleport.jpg")],
+    avatar: asset("/images/icons/urgot.jpg"),
+    summonerIcon: asset("/images/icons/summoner/matt.jpg"),
+    banner: asset("/images/banner/crabgot.jpg"),
+    skinName: "Crabgot",
+    rune: asset("/images/icons/runes/electrocute.jpg"),
+    summonerSpells: [asset("/images/icons/summoner-spells/flash.jpg"), asset("/images/icons/summoner-spells/smite.jpg")],
     message:
-    "Happy birthday mr sex tips!! I hope you have the bestest of times in Korea",
+      "happy birthday u terrorist ❤️\n\nurgot al'gai'ib's success is proof big ben is watching over you for your 22nd bday\n\nmay prosperity and tiny coins rain down on you while in korea 😄",
   },
   {
     id: "martin",
@@ -47,6 +47,21 @@ export const players = [
     summonerSpells: [asset("/images/icons/summoner-spells/flash.jpg"), asset("/images/icons/summoner-spells/ignite.jpg")],
     message:
       "Happy birthday Linus ! 🎉 \nYou're 22 now it's time to pack it up lil bro🎒\n\nHave fun in Korea and bring back a wife",
+  },
+  {
+    id: "mete",
+    name: "Mete",
+    username: "Lobotomizer",
+    level: 249,
+    team: 1,
+    avatar: asset("/images/icons/gragas.png"),
+    summonerIcon: asset("/images/icons/summoner/mete.jpg"),
+    banner: asset("/images/banner/gragas.jpg"),
+    skinName: "Gragas",
+    rune: asset("/images/icons/runes/grasp.jpg"),
+    summonerSpells: [asset("/images/icons/summoner-spells/flash.jpg"), asset("/images/icons/summoner-spells/teleport.jpg")],
+    message:
+    "Happy birthday mr sex tips!! I hope you have the bestest of times in Korea",
   },
   {
     id: "marcus",
@@ -89,7 +104,7 @@ export const players = [
     banner: asset("/images/banner/singed.jpg"),
     skinName: "Singed",
     rune: asset("/images/icons/runes/arcane-comet.jpg"),
-    summonerSpells: [asset("/images/icons/summoner-spells/flash.jpg"), asset("/images/icons/summoner-spells/ignite.jpg")],
+    summonerSpells: [asset("/images/icons/summoner-spells/flash.jpg"), asset("/images/icons/summoner-spells/smite.jpg")],
     message:
       "happy birthday Linus you're 6pek greatest disciple"
   },
